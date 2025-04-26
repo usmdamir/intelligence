@@ -1,12 +1,77 @@
+/* ===== ROOT-ПЕРЕМЕННЫЕ ===== */
+:root {
+    /* Размеры */
+    --max-width: 1200px;
+    --gap-unit: 1rem;
+    
+    /* Цвета */
+    --primary: #4285f4;
+    --text: #333;
+    --bg: #fff;
+    
+    /* Типография */
+    --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --text-base: 16px;
+  }
+  
+  /* ===== БАЗОВЫЕ СТИЛИ ===== */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-size: var(--text-base);
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: var(--font-main);
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg);
+    overflow-x: hidden;
+  }
+  
+  /* ===== УТИЛИТЫ ===== */
+  .full-width {
+    grid-column: 1 / -1;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  /* ===== АДАПТИВ ===== */
+  @media (max-width: 768px) {
+    :root {
+      --text-base: 14px;
+      --gap-unit: 0.75rem;
+    }
+    
+    .grid {
+      grid-template-columns: 1fr; /* Мобильный вид */
+    }
+  }
+
+
+
+
+
+
+
+
 /* Общий контейнер (аналог .container в Bootstrap) */
-.grid {
+/* ===== ОСНОВНАЯ СЕТКА ===== */
+  .grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr); /* 12 колонок */
-    gap: 16px; /* Отступ между колонками */
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--gap-unit);
     width: 100%;
-    max-width: 1200px; /* Ограничение по ширине */
-    margin: 0 auto; /* Центрирование */
-    padding: 0 15px; /* Отступы по краям */
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--gap-unit);
   }
   
   /* Колонки (ваши set-*) */
@@ -28,4 +93,4 @@
   .set-10 { --cols: 10; } /* 10/12 */
   .set-11 { --cols: 11; } /* 11/12 */
   .set-12 { --cols: 12; } /* 12/12 (100%) */
-  
+
